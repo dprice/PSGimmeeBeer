@@ -1,0 +1,178 @@
+# Get key here: https://www.brewerydb.com/developers/apps
+@apiKey = <Your API Key>
+@baseUrl = https://sandbox-api.brewerydb.com/v2
+
+### Adjuncts
+# https://www.brewerydb.com/developers/docs/endpoint/adjunct-index
+
+GET {{baseUrl}}/adjuncts?key={{apiKey}}
+Content-Type: application/json
+
+
+### Beers
+# https://www.brewerydb.com/developers/docs/endpoint/beer-index
+
+GET {{baseUrl}}/beers?key={{apiKey}}
+Content-Type: application/json
+
+
+### Breweries
+# https://www.brewerydb.com/developers/docs/endpoint/brewery-index
+
+GET {{baseUrl}}/breweries?key={{apiKey}}
+Content-Type: application/json
+
+
+### Categories
+# https://www.brewerydb.com/developers/docs/endpoint/category-index
+
+GET {{baseUrl}}/categories?key={{apiKey}}
+Content-Type: application/json
+
+
+### Change
+# https://www.brewerydb.com/developers/docs/endpoint/change-index
+
+GET {{baseUrl}}/changes?key={{apiKey}}
+Content-Type: application/json
+
+
+### Fluidsize
+# https://www.brewerydb.com/developers/docs/endpoint/fluidsize-index
+
+GET {{baseUrl}}/fluidsizes?key={{apiKey}}
+Content-Type: application/json
+
+
+### Fermentable
+# https://www.brewerydb.com/developers/docs/endpoint/fermentable-index
+
+GET {{baseUrl}}/fermentables?key={{apiKey}}
+Content-Type: application/json
+
+
+### Glass
+# https://www.brewerydb.com/developers/docs/endpoint/glassware-index
+
+GET {{baseUrl}}/glassware?key={{apiKey}}
+Content-Type: application/json
+
+
+### Guild
+# https://www.brewerydb.com/developers/docs/endpoint/guild-index
+
+GET {{baseUrl}}/guilds?key={{apiKey}}
+Content-Type: application/json
+
+
+### Guild
+# https://www.brewerydb.com/developers/docs/endpoint/guild-index
+
+GET {{baseUrl}}/guilds?key={{apiKey}}
+Content-Type: application/json
+
+
+### Heartbeat
+# https://www.brewerydb.com/developers/docs/endpoint/heartbeat-index
+
+GET {{baseUrl}}/heartbeat?key={{apiKey}}
+Content-Type: application/json
+
+
+### Hop
+# https://www.brewerydb.com/developers/docs/endpoint/hop-index
+
+GET {{baseUrl}}/hops?key={{apiKey}}
+Content-Type: application/json
+
+
+### Ingredient
+# https://www.brewerydb.com/developers/docs/endpoint/ingredient-index
+
+GET {{baseUrl}}/ingredients?key={{apiKey}}
+Content-Type: application/json
+
+
+### Locations
+# https://www.brewerydb.com/developers/docs/endpoint/location-index
+
+GET {{baseUrl}}/locations?key={{apiKey}}
+Content-Type: application/json
+
+
+### Menu
+# https://www.brewerydb.com/developers/docs/endpoint/menu-index
+
+# Menu - styles
+GET {{baseUrl}}/menu/styles?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - categories
+GET {{baseUrl}}/menu/categories?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - glassware
+GET {{baseUrl}}/menu/glassware?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - srm
+GET {{baseUrl}}/menu/srm?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - beer-availability
+GET {{baseUrl}}/menu/beer-availability?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - fluidsize
+GET {{baseUrl}}/menu/fluidsize?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - beer-temperature
+GET {{baseUrl}}/menu/beer-temperature?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - countries
+GET {{baseUrl}}/menu/countries?key={{apiKey}}
+Content-Type: application/json
+
+###
+
+# Menu - ingredients
+GET {{baseUrl}}/menu/ingredients?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - fluidsize-volume
+GET {{baseUrl}}/menu/fluidsize-volume?key={{apiKey}}
+Content-Type: application/json
+
+### Menu - event-types
+GET {{baseUrl}}/menu/event-types?key={{apiKey}}
+Content-Type: application/json
+
+
+### Search
+# https://www.brewerydb.com/developers/docs/endpoint/search-index
+
+GET {{baseUrl}}/search?key={{apiKey}}&q=ipa
+Content-Type: application/json
+
+
+### Socialsite
+# https://www.brewerydb.com/developers/docs/endpoint/socialsite-index
+
+GET {{baseUrl}}/socialsites?key={{apiKey}}
+Content-Type: application/json
+
+
+### Style
+# https://www.brewerydb.com/developers/docs/endpoint/style-index
+
+GET {{baseUrl}}/styles?key={{apiKey}}
+Content-Type: application/json
+
+
+### Yeast
+# https://www.brewerydb.com/developers/docs/endpoint/yeast-index
+
+GET {{baseUrl}}/yeasts?key={{apiKey}}
+Content-Type: application/json
