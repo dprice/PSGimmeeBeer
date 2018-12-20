@@ -1,12 +1,12 @@
 #Requires -Modules Pester
 
-Import-Module ..\GimmeeBeer.psm1 -Force
+$Script:module = 'GimmeeBeer'
+$Script:function = 'Get-GimmeeBeerSettings'
 
-$module = 'GimmeeBeer'
-$function = 'Set-GimmeeBeerSettings'
+Import-Module ..\$Script:module.psm1 -Force
 
 Describe 'GimmeeBeer Get-GimmeeBeerSettings Tests' {
-    Context "[$module] $function should throw an exception with missing parameters" {
+    Context "[$Script:module] $Script:function should throw an exception with missing parameters" {
         $parameters = @(
             'GimmeeUrl',
             'GimmeeAppId',
@@ -15,12 +15,12 @@ Describe 'GimmeeBeer Get-GimmeeBeerSettings Tests' {
             'BreweryDbApiKey'
         )
         foreach ($parameter in $parameters) {
-            It "[$module] $function should throw an error with missing parameter $parameter" {
+            It "[$Script:module] $Script:function should throw an error with missing parameter $parameter" {
                 {Set-GimmeeBeerSettings -$parameter $null} | Should Throw
             }
         }
 
-        It "[$module] $function should not throw exception when all parameters passed" {
+        It "[$Script:module] $Script:function should not throw exception when all parameters passed" {
             $splat = @{
                 GimmeeUrl       = 'http://test.com'
                 GimeeAppId      = '2'
@@ -32,30 +32,30 @@ Describe 'GimmeeBeer Get-GimmeeBeerSettings Tests' {
         }
     }
 
-    Context "[$module] $function should validate parameters" {
+    Context "[$Script:module] $Script:function should validate parameters" {
         $splat = @{
             GimmeeUrl       = '1'
             GimeeAppId      = '2'
             GimmeePw        = '3'
-            BreweryDbUrl    = 'http://test.com'
+            BreweryDbUrl    = '4'
             BreweryDbApiKey = '5'
         }
 
-        It "[$module] $function should throw exception for invalid url for GimmeeUrl" {
+        It "[$Script:module] $Script:function should throw exception for invalid url for GimmeeUrl" {
             $splat.GimmeeUrl = '1'
             $splat.BreweryDbUrl = 'http://test.com'
             {Set-GimmeeBeerSettings @splat} | Should Throw 'not a valid url'
         }
 
-        It "[$module] $function should throw exception for invalid url for BreweryDbUrl" {
+        It "[$Script:module] $Script:function should throw exception for invalid url for BreweryDbUrl" {
             $splat.GimmeeUrl = 'http://test.com'
-            $splat.BreweryDbUrl = '1'
+            $splat.BreweryDbUrl = '4'
             {Set-GimmeeBeerSettings @splat} | Should Throw 'not a valid url'
         }
     }
 
-    Context "[$module] $function should create a valid non-empty configuration file" {
-        It "[$module] $function should create non-empty file" {
+    Context "[$Script:module] $Script:function should create a valid non-empty configuration file" {
+        It "[$Script:module] $Script:function should create non-empty file" {
             $splat = @{
                 GimmeeUrl       = 'http://test.com'
                 GimeeAppId      = '2'
@@ -63,10 +63,10 @@ Describe 'GimmeeBeer Get-GimmeeBeerSettings Tests' {
                 BreweryDbUrl    = 'http://test.com'
                 BreweryDbApiKey = '5'
             }
-            Remove-Item ..\$module.json
+            Remove-Item ..\$Script:module.json -ErrorAction Ignore
             Set-GimmeeBeerSettings @splat
-            Get-Item ..\$module.json | Should Exist
-            Get-Content -Path..\$module.json | Should Not BeNullOrEmpty
+            Get-Item ..\$Script:module.json | Should Exist
+            Get-Content -Path..\$Script:module.json | Should Not BeNullOrEmpty
         }
     }
 }

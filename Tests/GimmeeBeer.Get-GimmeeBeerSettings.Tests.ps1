@@ -1,18 +1,20 @@
 #Requires -Modules Pester
 
-$module = 'GimmeeBeer'
-Import-Module ..\$module.psm1 -Force
+$Script:module = 'GimmeeBeer'
+$Script:function = 'Get-GimmeeBeerSettings'
 
-$function = 'Get-GimmeeBeerSettings'
+Import-Module ..\$Script:module.psm1 -Force
 
 Describe 'GimmeeBeer Get-GimmeeBeerSettings Tests' {
-    It "[$module] $function should throw an error for missing configuration" {
-        Remove-Item "..\$module.json" -ErrorAction Ignore
+    BeforeEach {
+        Remove-Item "..\$Script:module.json" -ErrorAction Ignore
+    }
+
+    It "[$Script:module] $Script:function should throw an error for missing configuration" {
         {Get-GimmeeBeerSettings} | Should Throw 'Unable to locate Gimmee settings'
     }
 
-    It "[$module] $function should return a non-empty valid configuration PSObject" {
-        Remove-Item "..\$module.json" -ErrorAction Ignore
+    It "[$Script:module] $Script:function should return a non-empty valid configuration PSObject" {
         $splat = @{
             GimmeeUrl       = 'http://test.com'
             GimeeAppId      = '2'
