@@ -1,3 +1,5 @@
 # Ignore local testing folder
 localtest/
-GimmmeeBeer.json
+
+# Ignore settings file to prevent pushing keys, passwords, etc.
+GimmeeBeer.json
